@@ -9,7 +9,7 @@ require "user.aliases"
 -- User plugings
 lvim.plugins = {
   { "lunarvim/colorschemes" },
-  --{ "github/copilot.vim" },
+  { "github/copilot.vim" },
 }
 
 lvim.colorscheme =  "aurora"
