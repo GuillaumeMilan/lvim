@@ -37,6 +37,7 @@ lvim.lsp.installer.setup.ensure_installed = {
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tailwindcss" })
 vim.opt.mouse = ""
+vim.opt.clipboard = ""
 
 local opts = {
   root_dir = function(fname)
