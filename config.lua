@@ -1,7 +1,9 @@
 -- Default plugin
 lvim.builtin.cmp.completion.keyword_length = 5
 lvim.builtin.telescope.defaults.layout_config.width = 0.95
-lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 75
+lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 200
+-- remove smart display which cut your path
+lvim.builtin.telescope.defaults.path_display = { }
 
 require "user.copilot"
 require "user.aliases"
@@ -12,7 +14,8 @@ lvim.plugins = {
   { "github/copilot.vim" },
 }
 
-lvim.colorscheme =  "aurora"
+lvim.colorscheme = "aurora"
+-- lvim.transparent_window = true
 
 -- lvim.format_on_save = true
 

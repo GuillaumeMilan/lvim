@@ -1,10 +1,20 @@
--- Unassign bindings
+-- Clipboard toggle
+function ToggleClipboard()
+  if vim.opt.clipboard._value == "unnamedplus" then
+    vim.opt.clipboard = ""
+    print("Clipboard disabled")
+  else
+    vim.opt.clipboard = "unnamedplus"
+    print("Clipboard enabled")
+  end
+end
+
 lvim.builtin.which_key.mappings["c"] = {
- name = "Clipboard",
- ["c"] = { "<cmd>lua if vim.opt.clipboard._value == \"unnamedplus\" then vim.opt.clipboard=\"\" else vim.opt.clipboard=\"unnamedplus\" end<CR>", "Toggle clipboard" },
+  name = "Clipboard",
+  ["c"] = { "<cmd>lua ToggleClipboard()<CR>", "Toggle clipboard" },
 }
 
--- Keybindings
+-- Buffer keybindings
 lvim.builtin.which_key.mappings["b"]["d"] = { "<cmd>BufferKill<CR>", "Close" }
 lvim.builtin.which_key.mappings["b"]["g"] = {
   name = "GoTo",
@@ -52,7 +62,10 @@ lvim.builtin.which_key.mappings["g"]["c"] = {
   c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 }
 
+lvim.builtin.which_key.mappings["t"] = { '<cmd>Telescope live_grep<CR>', "Live grep" }
+
 lvim.builtin.which_key.mappings["u"] = {
   name = "Utils",
   ["h"] = { '<cmd>let @/=""<CR>', "No Highlight" },
+  ["t"] = { '<cmd>Telescope live_grep<CR>', "Live grep" },
 }
